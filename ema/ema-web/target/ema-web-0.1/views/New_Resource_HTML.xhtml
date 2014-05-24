@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<f:view contentType="text/html">
+	<h:head>
+		<f:facet name="first">
+			<meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+			<meta content='text/html; charset=UTF-8' http-equiv="Content-Type" />
+			<title>EMA HTML Editor</title>
+		</f:facet>
+
+		<h:outputStylesheet library="resources" name="css/style.css" />
+
+
+	</h:head>
+
+
+	<h:body class="color">
+
+		<ui:composition template="../template/comon.xhtml">
+
+			<ui:define name="right">
+				<ui:insert>
+					<ui:include src="../template/elements/right_completo.xhtml" />
+				</ui:insert>
+			</ui:define>
+
+			<ui:define name="center">
+				<ui:insert>
+					<h:outputFormat value="Nombre de tu proyecto:{0}">
+						   <f:param name="project" value="#{htmlResource.nameProject}" />
+					</h:outputFormat>
+					<br />
+					<br />
+					<h:outputFormat value="Nombre de tu proyecto:{0}">
+						<f:param name="htmlResource"
+							value="#{htmlResource.nameResourceHTML}" />
+					</h:outputFormat>
+
+					<h:form id="textHtml">
+						<p:inputTextarea id="textAreaHtml" rows="10" cols="50"
+							value="#{codeBean.etiqueta}"
+							completeMethod="#{autocompleteBean.completeArea}"
+							minQueryLength="0"
+							style="width:90%; height:80%; margin-left:5%; margin-right:5%; " 
+                            autoResize="false" />
+
+						<div>
+						<h:commandButton value="Guardar" icon="ui-icon-disk"
+							actionListener="#{editHTMLResource.saveCode}">
+							<f:param name="project" value="#{htmlResource.nameProject}"></f:param>
+							<f:param name="htmlResource"
+								value="#{htmlResource.nameResourceHTML}" />
+								<f:ajax execute="@form" render="@none" />
+						</h:commandButton>
+						<h:commandButton value="Visualizar" actionListener="#{visualizationBean.callVisualizationServlet}" ajax="false"
+						icon="ui-icon-circle-zoomin">
+						<f:param name="project" value="#{htmlResource.nameProject}"></f:param>
+						<f:param name="htmlResource"
+						value="#{htmlResource.nameResourceHTML}" />
+						</h:commandButton>
+						</div>
+					</h:form>
+				</ui:insert>
+			</ui:define>
+
+		</ui:composition>
+
+	</h:body>
+
+</f:view>
+</html>
+
+
+

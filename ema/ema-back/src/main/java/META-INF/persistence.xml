@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+        http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+
+    <persistence-unit name="transactions-optional">
+        <class>mx.ipn.escom.ema.model.entities.Attributes</class>
+        <class>mx.ipn.escom.ema.model.entities.CSSResources</class>
+        <class>mx.ipn.escom.ema.model.entities.HTMLResources</class>
+        <class>mx.ipn.escom.ema.model.entities.Projects</class>
+        <class>mx.ipn.escom.ema.model.entities.Resources</class>
+        <class>mx.ipn.escom.ema.model.entities.Tags</class>
+        <class>mx.ipn.escom.ema.model.entities.Users</class>
+        <class>mx.ipn.escom.ema.model.entities.Greeting</class>
+        <class>mx.ipn.escom.ema.model.entities.SharedProjects</class>
+        <provider>org.datanucleus.api.jpa.PersistenceProviderImpl</provider>
+        <properties>
+            <property name="datanucleus.NontransactionalRead" value="true"/>
+            <property name="datanucleus.NontransactionalWrite" value="true"/>
+            <property name="datanucleus.ConnectionURL" value="appengine"/>
+            <property name="datanucleus.singletonEMFForName" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
+

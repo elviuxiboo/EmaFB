@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>mx.ipn.escom</groupId>
+  <artifactId>ema-services</artifactId>
+  <packaging>jar</packaging>
+  <version>0.1</version>
+  <url>http://www.escom.ipn.mx</url>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <parent>
+    <groupId>mx.ipn.escom</groupId>
+    <artifactId>ema</artifactId>
+    <version>0.1</version>
+  </parent>
+
+  <dependencies>
+    <dependency>
+      <groupId>mx.ipn.escom</groupId>
+      <artifactId>ema-common</artifactId>
+      <version>${project.parent.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>mx.ipn.escom</groupId>
+      <artifactId>ema-back</artifactId>
+      <version>${project.parent.version}</version>
+    </dependency>
+  </dependencies>
+
+</project>

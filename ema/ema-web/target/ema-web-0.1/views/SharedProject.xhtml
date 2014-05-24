@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui"
+      >
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta http-equiv="X-UA-Compatible" content="EmulateIE8" />
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>EMA HTML Editor</title>
+            </f:facet>
+
+            <h:outputStylesheet library="resources" name="css/style.css" />
+
+
+        </h:head>
+
+
+        <h:body class="color"  >
+
+            <ui:composition template="../template/comon.xhtml">
+
+                <ui:define name="right">
+                    <ui:insert>
+                        <ui:include src="../template/elements/right_ingreso.xhtml"/>
+                    </ui:insert>
+                </ui:define>
+
+                <ui:define name="center">
+                <h1 align="center" > Comparte tus proyectos con un amigo</h1>
+                        	
+		<h:form>
+		<p:fieldset legend="Compartir">
+    <h:panelGrid columns="2"   cellpadding="40">
+	    <h:outputText value="Por Favor Elige el nombre del usuario a quien deseas compartir el proyecto"/>
+    	<p:autoComplete value="#{shareProject.txt}" 
+                        completeMethod="#{shareProject.getUsers}"/>
+         <h:outputText value="Elige el proyecto que deseas compartir"/>
+		 <p:selectOneListbox id="scroll" value="#{shareProject.project}" >
+        	<f:selectItems value="#{shareProject.projects}" />
+         </p:selectOneListbox>    
+         <h:outputText value=""/>
+        <p:commandButton value="Compartir Proyecto" action="#{shareProject.shareProject}" />
+    </h:panelGrid>
+</p:fieldset>  
+		  
+        </h:form>                           
+                </ui:define>
+
+            </ui:composition>
+
+        </h:body>
+
+    </f:view>
+</html>

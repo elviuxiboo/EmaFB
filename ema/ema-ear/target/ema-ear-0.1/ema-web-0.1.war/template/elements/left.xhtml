@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+<h:head>
+	<title>Facelet Title</title>
+</h:head>
+<h:body>
+
+	<ui:composition>
+
+
+
+		<p:accordionPanel dynamic="true" cache="true" style="width: 100%">
+			<p:tab title="Mis Proyectos">
+
+				<h:form>
+					<p:growl id="messages" showDetail="true" />
+					<p:contextMenu id="proyecto" for="treeResources" nodeType="node">
+						<p:menuitem value="Eliminar Proyecto"
+									actionListener="#{treeBean.deleteProject}" update="messages" />								
+					</p:contextMenu>
+					
+					<p:contextMenu id="recurso" for="treeResources" nodeType="leaf">
+						<p:menuitem value="Abrir"
+									action="#{treeBean.outcome}" ajax="false">
+									<f:setPropertyActionListener target="#{node}" value="#{treeBean.selectedNode}"></f:setPropertyActionListener>
+									<f:setPropertyActionListener target="#{treeBean.child}" value="#{treeBean.selectedNode}"></f:setPropertyActionListener>
+									<f:setPropertyActionListener target="#{treeBean.parent}" value="#{treeBean.selectedNode.parent}"></f:setPropertyActionListener>
+						</p:menuitem>
+						<p:menuitem value="Eliminar Recurso"
+									actionListener="#{treeBean.deleteResource}" update="treeResources" />								
+					</p:contextMenu>
+
+
+					<p:tree id="treeResources" value="#{treeBean.root}" var="node"
+						dynamic="true" selectionMode="single"
+						selection="#{treeBean.selectedNode}" style="width:200px;">
+						<p:treeNode type="node">
+							<h:outputText value="#{node}"></h:outputText>
+						</p:treeNode>
+						<p:treeNode type="leaf">
+							<h:outputText value="#{node}"></h:outputText>
+						</p:treeNode>
+					</p:tree>
+					<h:commandButton value="Eliminar" action="#{treeBean.outcome}">
+							<f:setPropertyActionListener target="#{treeBean.child}" value="#{treeBean.selectedNode}"></f:setPropertyActionListener>
+							<f:setPropertyActionListener target="#{treeBean.parent}" value="#{treeBean.selectedNode.parent}"></f:setPropertyActionListener>
+					</h:commandButton>
+				</h:form>
+			</p:tab>
+
+
+
+
+
+
+			<p:tab title="Proyectos Compartidos">
+				<h:form>
+
+					<p:treeTable id="withContextMenu" value="#{treeTableBean.root}"
+						var="element"
+						selection="#{treeTableBean.selectedItemForContextMenu}"
+						selectionMode="single">
+
+						<p:column>
+							<f:facet name="header">Proyecto</f:facet>
+							<h:outputText value="#{element.name}" />
+						</p:column>
+						<p:column>
+							<f:facet name="header">Recurso</f:facet>
+							<h:outputText value="#{element.column1}" />
+						</p:column>
+						<p:column>
+							<f:facet name="header">Usuario</f:facet>
+							<h:outputText value="#{element.column2}" />
+						</p:column>
+					</p:treeTable>
+
+					<h:form>
+
+						<p:contextMenu nodeType="node">
+							<p:menuitem value="View" icon="ui-icon-search"
+								oncomplete="nodeDialog.show()" />
+						</p:contextMenu>
+
+						<p:contextMenu nodeType="leaf">
+							<p:menuitem value="View" icon="ui-icon-search"
+								oncomplete="nodeDialog.show()" />
+
+						</p:contextMenu>
+
+					</h:form>
+				</h:form>
+			</p:tab>
+		</p:accordionPanel>
+
+
+
+
+
+	</ui:composition>
+
+</h:body>
+</html>

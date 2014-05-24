@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body class="color">
+
+ 
+			<h:graphicImage style="width:50px; height: 50px; margin-left:10%; margin-top:5px; "  url="../resources/imagenes/logoescom.png" />
+			<h:graphicImage style="width:50px; height: 50px; margin-left:5%; margin-top:5px; "  url="../resources/imagenes/ipn.png" />
+            <h:graphicImage style="width:50px; height: 50px; margin-left:5%; margin-top:5px; "  url="../resources/imagenes/borre.png" /> 
+			 
+
+            <div align="center" style="top:-10px; position:relative; margin-top:-55px;">
+                <h2 style="color: #FF3399" ><strong> EMA HTML-Editor</strong>  </h2>
+            </div>
+            <h:form>
+                <h:commandButton icon="ui-icon-contact" 
+                			     value="Inicia Sesion" 
+                			     style="margin-right: 5px; 
+                			     position: fixed; 
+                			     right: 100px; 
+                			     margin-top:-55px; " 
+                			     action="#{login.callServletIngreso}"  />
+            </h:form>
+
+
+
+    </h:body>
+</html>

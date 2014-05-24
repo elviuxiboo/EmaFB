@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body class="color">
+
+        <ui:composition>
+
+            <h:graphicImage style="width:50px; height: 50px; margin-left:10%; margin-top:5px; "  url="../resources/imagenes/logoescom.png" />
+			<h:graphicImage style="width:50px; height: 50px; margin-left:5%; margin-top:5px; "  url="../resources/imagenes/ipn.png" />
+            <h:graphicImage style="width:50px; height: 50px; margin-left:5%; margin-top:5px; "  url="../resources/imagenes/borre.png" /> 
+
+
+            <div align="center" style="top:-10px; position:relative; margin-top:-60px;">
+                <h2 style="color: #FF3399;" ><strong> EMA HTML-Editor</strong>  </h2>
+            </div>
+            <h:form>
+                <h:commandButton icon="ui-icon-contact" 
+                			     value="Cerrar Sesion" 
+                			     style="margin-right: 5px; 
+                			     position: fixed; 
+                			     right: 100px; 
+                			     margin-top:-60px; " 
+                			     action="#{login.outcome}"   />
+            </h:form>
+
+            <h:form id="newProject">
+                <p:dialog header="Nuevo Proyecto" widgetVar="dnp" 
+                          showEffect="explode" hideEffect="bounce">
+
+                    <h:panelGrid columns="1" cellpadding="10">
+
+                        <h:outputLabel for="Project_name" value="Nombre del Proyecto *" />
+                        <p:inputText id="Project_name" 
+                        			 value="#{newProject.nombreProyecto}" 
+                        			 label="Nombre" 
+                        			 required="true"
+                        			 >
+                        			 
+                            <f:validateLength minimum="2"/>
+                        </p:inputText>
+
+                        <h:outputText value="Incluir Hoja de Estilo en Cascada" />
+                        <h:selectBooleanCheckbox label="estilo.css" value = "#{newProject.incluirCSS}"  />estilo.css
+
+                        <p:commandButton value="Aceptar" id="crear_proyecto_button" action="#{newProject.outcome}" />
+                    </h:panelGrid>
+                </p:dialog>   
+            </h:form>
+
+            <h:form id="html">
+                <p:dialog header="Nuevo HTML" widgetVar="dn_html" 
+                          showEffect="fold" hideEffect="fold">
+
+                    <h:panelGrid columns="1" cellpadding="10">
+
+                        <h:outputLabel for="Project_name" value="Nombre del Proyecto *" />
+                        <p:autoComplete id="force_proyect" 
+                        				forceSelection="true" 
+                        				dropdown="true"
+                                        value="#{htmlResource.nameProject}" 
+                                        completeMethod="#{htmlResource.complete}"/>
+
+                                        <h:outputText value="Nombre de tu recurso HTML" />
+                                        <p:inputText id="regex" 
+                                        			 required="true" 
+                                        			 value="#{htmlResource.nameResourceHTML}" > 
+                                        </p:inputText>  
+                          
+                        <h:commandButton value="Aceptar"  id="crear_html_boton" action="#{htmlResource.outcome}">
+                        </h:commandButton>
+                    </h:panelGrid>
+                </p:dialog>   
+            </h:form>
+            
+            <h:form id="css">
+                 <p:dialog header="Nuevo CSS" widgetVar="dn_css" 
+                          showEffect="fold" hideEffect="fold">
+
+                    <h:panelGrid columns="1" cellpadding="10">
+
+                        <h:outputLabel for="Project_name" value="Nombre del Proyecto *" />
+                        <p:autoComplete id="force_proyect" 
+                        				forceSelection="true" 
+                        				dropdown="true"
+                                        value="#{cssResource.nameProject}"
+                                        completeMethod="#{cssResource.complete}"/>
+
+                                        <h:outputText value="Nombre de tu recurso CSS" />
+                                        <p:inputText id="regex" 
+                                        			 required="true" 
+                                        			 value="#{cssResource.nombre_css}" >    
+                                        </p:inputText>  
+                          
+                        <p:commandButton value="Aceptar" id="crear_html_boton" action="#{cssResource.outcome}" />
+                    </h:panelGrid>
+                </p:dialog>   
+            </h:form>
+            
+            
+            <h:form id="projectName">
+              
+            	<p:confirmDialog widgetVar="dmnp"  global="true" showEffect="fade" hideEffect="explode">
+            	     <h:panelGrid columns="1" cellpadding="10">
+            	     <h:outputLabel for="Project_name" value="Nombre del Proyecto *" />
+                        <h:outputText value="Qui va el nombre del proyecto que no se como sacarlo aun " />
+
+                                        <h:outputText value="Nuevo nombre" />
+                                        <p:inputText id="nombreProject" 
+                                        			 required="true" 
+                                        			  >    
+                                        </p:inputText>  
+                          
+                        <p:commandButton value="Aceptar" id="modificarNombreProjecto"  />
+                    </h:panelGrid>
+            	</p:confirmDialog>
+            </h:form>
+            
+            
+            
+            
+        </ui:composition>
+
+
+    </h:body>
+</html>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config
+    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
+    version="2.2">
+
+ <managed-bean>
+  <managed-bean-name>login</managed-bean-name>
+  <managed-bean-class>mx.ipn.escom.ema.controller.LoginBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+ <managed-bean>
+  <managed-bean-name>registro</managed-bean-name>
+  <managed-bean-class>mx.ipn.escom.ema.controller.RegisterBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+ <managed-bean>
+  <managed-bean-name>newProject</managed-bean-name>
+  <managed-bean-class>mx.ipn.escom.ema.controller.NewProjectBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+ <managed-bean>
+  <managed-bean-name>htmlResource</managed-bean-name>
+  <managed-bean-class>mx.ipn.escom.ema.controller.NewResourceBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+ <managed-bean>
+  <managed-bean-name>cssResource</managed-bean-name>
+  <managed-bean-class>mx.ipn.escom.ema.controller.NewResourceCSSBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+
+ <managed-bean>
+  <managed-bean-name>shareProject</managed-bean-name>
+  <managed-bean-class>mx.ipn.escom.ema.controller.SharingProjectBean</managed-bean-class>
+  <managed-bean-scope>request</managed-bean-scope>
+</managed-bean>
+</faces-config>

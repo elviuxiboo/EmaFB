@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>mx.ipn.escom</groupId>
+  <artifactId>ema</artifactId>
+  <packaging>pom</packaging>
+  <version>0.1</version>
+  <url>http://www.escom.ipn.mx</url>
+  
+  <properties>
+    <appengine.target.version>1.9.3</appengine.target.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.google.appengine</groupId>
+          <artifactId>appengine-maven-plugin</artifactId>
+          <version>${appengine.target.version}</version>
+        </plugin>
+   <!-- <plugin>  
+          <groupId>org.eclipse.m2e</groupId>  
+          <artifactId>lifecycle-mapping</artifactId>  
+          <version>1.0.0</version>
+          <configuration>  
+            <lifecycleMappingMetadata>  
+              <pluginExecutions>  
+                <pluginExecution>  
+                  <pluginExecutionFilter>  
+                    <groupId>org.datanucleus</groupId>  
+                    <artifactId>maven-datanucleus-plugin</artifactId>  
+                    <versionRange>${datanucleus.jpa.version}</versionRange>  
+                    <goals>  
+                      <goal>enhance</goal>  
+                    </goals>  
+                  </pluginExecutionFilter>
+                  <action>  
+                    <execute >  
+                      <runOnIncremental>false</runOnIncremental>  
+                    </execute >  
+                  </action>  
+                </pluginExecution>  
+              </pluginExecutions>  
+            </lifecycleMappingMetadata>  
+          </configuration>  
+        </plugin> -->
+      </plugins>
+    </pluginManagement>
+
+  </build>
+
+  <modules>
+    <module>ema-common</module>
+    <module>ema-back</module>
+    <module>ema-services</module>
+    <module>ema-web</module>
+    <module>ema-ear</module>
+  </modules>
+</project>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+	  xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Menu Derecho</title>
+    </h:head>
+    <h:body>
+
+        <ui:composition >
+            <h:form >
+
+
+                <p:menu style="width:90% ">
+<p:submenu label="Nuevo">
+<p:menuitem value="Proyecto" id="Nuevo_Proyecto" onclick="PF('dnp').show();" />
+
+<p:menuitem value="Recurso HTML" id="Nuevo_Recurso_HTML" onclick="PF('dn_html').show();" />
+<p:menuitem value="Recurso CSS"  id="Nuevo_Recurso_CSS" onclick="PF('dn_css').show();" />
+</p:submenu>
+<p:submenu label="Herramientas"  >
+<p:menuitem value="Compartir Elemento" url="../views/SharedProject.xhtml" /> 
+<p:menuitem  value="Consultar diccionario HTML" url="#" />
+<p:menuitem icon="ui-icon-help" value="Acerca de EMA" />
+</p:submenu>
+ 
+</p:menu>
+
+                
+              
+            </h:form>
+           
+                
+            
+        </ui:composition>
+
+    </h:body>
+</html>
